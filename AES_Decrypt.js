@@ -45,7 +45,7 @@ var sub_9744 = null;
 function hookso(){
     var nativelibmodul = Process.getModuleByName('libnative-lib.so');
     var sub_9744_addr = nativelibmodul.base.add(0x9744 + 1);
-    sub_9744 = new NativeFunction(sub_9744_addr, 'void', ['pointer', 'pointer', 'pointer']);
+    sub_9744 = new NativeFunction(sub_9744_addr, 'pointer', ['pointer', 'pointer', 'pointer']);
     Interceptor.attach(sub_9744_addr, {
         onEnter: function(args){
             console.log("sub_9744_addr arg0: ", hexdump(args[0]));
